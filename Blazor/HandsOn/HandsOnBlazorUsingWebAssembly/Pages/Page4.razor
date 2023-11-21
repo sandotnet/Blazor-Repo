@@ -1,0 +1,10 @@
+﻿@page "/page4"
+@inject NavigationManager Navigation 
+<button @onclick=GoToCounter>Counter</button>
+
+@code {
+    private void GoToCounter()
+    {
+        Navigation.NavigateTo("counter"); //Navigate to counter component
+    }
+}

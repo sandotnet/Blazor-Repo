@@ -1,0 +1,13 @@
+﻿@page "/page1"
+<div class="container">
+    <h3>Cities</h3>
+    <ul>
+        @foreach(var item in cities)
+        {
+            <li>@item</li>
+        }
+    </ul>
+</div>
+@code {
+    string []cities = { "Pune", "Hyderabad", "Mumbai", "Delhi" };
+}

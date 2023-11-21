@@ -1,0 +1,25 @@
+﻿@page "/GetAllProducts"
+@inherits HandsOnBlazorUsingModels.Codebase.ProductBase
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in GetProducts())
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                  
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

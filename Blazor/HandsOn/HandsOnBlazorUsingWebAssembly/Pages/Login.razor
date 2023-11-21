@@ -1,0 +1,51 @@
+﻿@page "/login"
+@inject NavigationManager Navigation
+<div class="container">
+    <table>
+        <tr>
+            <td>Username</td>
+            <td>
+                <input type="text" @bind=Username class="form-control" />
+                <span class="text-danger">@ErrMsg</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                <input type="password" @bind="Password" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button @onclick="Validate" class="btn btn-primary">Validate</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span class="text-warning">@ErrMsg</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+@code {
+    public string Username{ get; set; }
+    public string Password{ get; set; }
+    public string ErrMsg{ get; set; }
+    private void Validate()
+    {
+        if(string.IsNullOrWhiteSpace(Username))
+        {
+            ErrMsg = "Pls Enter Username";
+        }
+        else if(Username=="Jay" && Password=="12345")
+        {
+            Navigation.NavigateTo("admin-dashboard");
+        }
+        else
+        {
+            ErrMsg = "Invalid Credentials";
+        }
+    }
+
+}
