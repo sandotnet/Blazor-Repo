@@ -32,5 +32,18 @@ namespace HandsOnBlazorUsingRestAPI.Services
             var requestContent = new StringContent(content, Encoding.UTF8, "application/json");
             var response = await _client.PostAsync("/api/Movie/AddMovie", requestContent);
         }
+
+        public async void Delete(int id)
+        {
+            var response = await _client.DeleteAsync("/api/Movie/DeleteMovie/" + id);
+            var content = await response.Content.ReadAsStringAsync();
+        }
+
+        public async void Edit(Movie movie)
+        {
+            var content = JsonSerializer.Serialize(movie);
+            var requestContent = new StringContent(content, Encoding.UTF8, "application/json");
+            var response = await _client.PutAsync("/api/Movie/EditMovie", requestContent);
+        }
     }
 }

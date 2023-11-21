@@ -1,0 +1,23 @@
+﻿@page "/GetMovie/{MovieId:int}"
+@using HandsOnBlazorUsingRestAPI.Models
+@using HandsOnBlazorUsingRestAPI.Services
+@inject IMovieService movieService
+<div class="container">
+    <pre>
+        Title     :   @Movie.title
+        Languate  :   @Movie.language
+        Actor     :   @Movie.actor
+        Director  :   @Movie.director
+    </pre>
+    <a href="/">Back</a>
+</div>
+
+@code {
+    [Parameter]
+    public int MovieId{ get; set; }
+    public Movie Movie{ get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        Movie = await movieService.Get(MovieId);
+    }
+}

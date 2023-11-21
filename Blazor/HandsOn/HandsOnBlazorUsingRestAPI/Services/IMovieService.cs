@@ -7,5 +7,7 @@ namespace HandsOnBlazorUsingRestAPI.Services
         Task<List<Movie>> GetAll();
         Task<Movie> Get(int id);
         void Add(Movie movie);
+        void Delete(int id);
+        void Edit(Movie movie);
     }
 }

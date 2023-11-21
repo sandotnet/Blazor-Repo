@@ -9,6 +9,8 @@ namespace HandsOnBlazorUsingRestAPI.Models
         public List<Movie> Movies { get; set; }
         [Inject]
         public  IMovieService movieService { get; set; } //created object using DI
+        [Inject]
+        public NavigationManager Navigation { get; set; }
         public Movie movie = new Movie();
         [Parameter]
         public int MovieId { get; set; }
@@ -19,16 +21,15 @@ namespace HandsOnBlazorUsingRestAPI.Models
         }
         protected async Task Add()
         {
-            movie.releaseYear = 2000;
+            Navigation.NavigateTo("/");
             movieService.Add(movie);
+           
         }
         protected async Task<List<Movie>> GetMovies()
         {
             return await movieService.GetAll();
         }
-        protected async Task GetMovie()
-        {
-            movie = await movieService.Get(MovieId);
-        }
+       
+        
     }
 }

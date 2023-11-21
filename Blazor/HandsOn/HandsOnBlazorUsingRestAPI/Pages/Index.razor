@@ -1,6 +1,7 @@
 ﻿@page "/"
 @inherits HandsOnBlazorUsingRestAPI.Models.MovieBase
 <div class="cotainer">
+    <a href="AddMovie">AddMovie</a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -23,9 +24,11 @@
                     <td>@item.releaseYear</td>
                     <td>@item.actor</td>
                     <td>@item.director</td>
-                   @*  <td>
-                        <a href="GetMovieById/@item.movieId">Details</a>
-                    </td> *@
+                    <td>
+                        <a href="GetMovie/@item.movieId">Details</a>
+                        <a href="EditMovie/@item.movieId">Edit</a>
+                        <a href="DeleteMovie/@item.movieId">Delete</a>
+                    </td>
 
                 </tr>
             }
